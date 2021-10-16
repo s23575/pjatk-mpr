@@ -6,15 +6,15 @@ public class Animal {
     private String specimen;
     private Diet diet;
     private Type type;
-    private boolean isHungry;
+    private boolean hungry;
     private int health;
 
-    public Animal(Integer id, String specimen, Diet diet, Type type, boolean isHungry, int health) {
+    public Animal(Integer id, String specimen, Diet diet, Type type, boolean hungry, int health) {
         this.id = id;
         this.specimen = specimen;
         this.diet = diet;
         this.type = type;
-        this.isHungry = isHungry;
+        this.hungry = hungry;
         this.health = health;
     }
 
@@ -54,11 +54,11 @@ public class Animal {
     }
 
     public Boolean getHungry() {
-        return this.isHungry;
+        return this.hungry;
     }
 
     public void setHungry(Boolean hungry) {
-        isHungry = hungry;
+        this.hungry = hungry;
     }
 
     public Integer getHealth() {
@@ -67,5 +67,17 @@ public class Animal {
 
     public void setHealth(Integer health) {
         this.health = health;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "id=" + id +
+                ", specimen='" + specimen + '\'' +
+                ", diet=" + diet +
+                ", type=" + type +
+                ", hungry=" + hungry +
+                ", health=" + health +
+                '}';
     }
 }

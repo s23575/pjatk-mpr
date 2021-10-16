@@ -6,14 +6,14 @@ public class Zoo {
     private Integer id;
     private String name;
     private String location;
-    private boolean isClosed;
+    private boolean open;
     private List<Animal> animals;
 
-    public Zoo(Integer id, String name, String location, boolean isClosed, List<Animal> animals) {
+    public Zoo(Integer id, String name, String location, boolean open, List<Animal> animals) {
         this.id = id;
         this.name = name;
         this.location = location;
-        this.isClosed = isClosed;
+        this.open = open;
         this.animals = animals;
     }
 
@@ -45,11 +45,11 @@ public class Zoo {
     }
 
     public boolean isClosed() {
-        return this.isClosed;
+        return this.open;
     }
 
     public void setClosed(boolean closed) {
-        isClosed = closed;
+        open = closed;
     }
 
     public List<Animal> getAnimals() {
@@ -58,5 +58,16 @@ public class Zoo {
 
     public void setAnimals(List<Animal> animals) {
         this.animals = animals;
+    }
+
+    @Override
+    public String toString() {
+        return "Zoo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", location='" + location + '\'' +
+                ", open=" + open +
+                ", animals=" + animals.get(0).toString() +
+                '}';
     }
 }
