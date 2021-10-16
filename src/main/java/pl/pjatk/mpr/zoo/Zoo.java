@@ -63,11 +63,11 @@ public class Zoo {
     @Override
     public String toString() {
         return "Zoo{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", location='" + location + '\'' +
-                ", open=" + open +
-                ", animals=" + animals.get(0).toString() +
+                "id=" + this.id +
+                ", name='" + this.name + '\'' +
+                ", location='" + this.location + '\'' +
+                ", open=" + this.open +
+                ", animals=" + this.animals.toString() +
                 '}';
     }
 }

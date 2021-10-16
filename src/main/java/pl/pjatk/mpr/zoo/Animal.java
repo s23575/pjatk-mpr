@@ -72,12 +72,12 @@ public class Animal {
     @Override
     public String toString() {
         return "Animal{" +
-                "id=" + id +
-                ", specimen='" + specimen + '\'' +
-                ", diet=" + diet +
-                ", type=" + type +
-                ", hungry=" + hungry +
-                ", health=" + health +
+                "id=" + this.id +
+                ", specimen='" + this.specimen + '\'' +
+                ", diet=" + this.diet +
+                ", type=" + this.type +
+                ", hungry=" + this.hungry +
+                ", health=" + this.health +
                 '}';
     }
 }
