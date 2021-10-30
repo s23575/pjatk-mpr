@@ -1,10 +1,12 @@
 package pl.pjatk.mpr.zoo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.swing.*;
 import java.util.List;
 
 @RestController // Dodatkowe zachowanie schowane pod tego typu klasami; jeden wielki "kubeł" obsługujący zapytania
@@ -12,19 +14,26 @@ import java.util.List;
 
 public class ZooRestController {
 
+    // @Autowired // Ale to nie jest najlepsze rozwiązanie
+    private final ZooService zooService; // Bez final i bez konstruktora to będzie zwracać error (NullPointerException i "500");
+
+    public ZooRestController(ZooService zooService) {
+        this.zooService = zooService;
+    }
+
     @GetMapping("/example")
     public ResponseEntity<Zoo> getExampleZoo() {
-        Animal tygrys = new Animal(1,"kotowate",Diet.MEAT,Type.LAND,false,100);
-        Animal puma = new Animal(2,"kotowate",Diet.MEAT,Type.LAND,false,90);
-        List<Animal> animalList = List.of(tygrys, puma);
-        Zoo zoo = new Zoo(1,"Wesołe","Kraków",true,animalList);
-        return ResponseEntity.ok(zoo);
+        return ResponseEntity.ok(zooService.getExampleZoo());
     }
 
     @GetMapping("/empty")
     public ResponseEntity<Zoo> getEmptyZoo() {
-        Zoo zoo = new Zoo(1,"Wesołe","Kraków",true,null);
-        return ResponseEntity.ok(zoo);
+        return ResponseEntity.ok(zooService.getEmptyZoo());
+    }
+
+    @GetMapping("/named")
+    public ResponseEntity<Zoo> getEmptyZooNamed() {
+        return ResponseEntity.ok(zooService.getEmptyZooNamed("Przykładowa nazwa"));
     }
 
 }
