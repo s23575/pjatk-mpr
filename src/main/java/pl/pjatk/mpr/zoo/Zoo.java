@@ -6,8 +6,8 @@ import java.util.List;
 @Entity
 public class Zoo {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Id // Do tego potrzebny jest bezargumentowy konstruktor
+    @GeneratedValue(strategy= GenerationType.IDENTITY) // Do tego potrzebny jest bezargumentowy konstruktor
     private Integer id;
     private String name;
     private String location;
