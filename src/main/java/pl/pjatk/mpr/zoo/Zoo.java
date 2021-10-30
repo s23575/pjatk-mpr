@@ -1,12 +1,18 @@
 package pl.pjatk.mpr.zoo;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Zoo {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String location;
     private boolean open;
+    @OneToMany
     private List<Animal> animals;
 
     public Zoo(Integer id, String name, String location, boolean open, List<Animal> animals) {
